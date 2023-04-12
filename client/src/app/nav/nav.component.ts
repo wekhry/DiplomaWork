@@ -23,7 +23,6 @@ export class NavComponent implements OnInit {
   login(){
     this.accountService.login(this.model).subscribe({
       next: _ => this.router.navigateByUrl('/to-dos'),
-      error: error => this.toastr.error(error.error)
     })
   }
 
