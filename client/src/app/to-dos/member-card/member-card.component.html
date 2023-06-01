@@ -6,7 +6,7 @@
                 <button routerLink="/to-dos/{{member.userName}}" class="btn btn-primary p-3"><i class="fa fa-user"></i></button>
             </li>
             <li class="list-inline-item m-1">
-                <button class="btn btn-primary p-3"><i class="fa fa-heart"></i></button>
+                <button (click)="addLike(member)"  class="btn btn-primary p-3"><i class="fa fa-heart"></i></button>
             </li>
             <li class="list-inline-item m-1">
                 <button class="btn btn-primary p-3"><i class="fa fa-envelope"></i></button>
