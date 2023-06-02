@@ -11,6 +11,7 @@ import { NotFoundComponent } from './errors/not-found/not-found.component';
 import { ServerErrorComponent } from './errors/server-error/server-error.component';
 import { ToDoEditComponent } from './to-dos/to-do-edit/to-do-edit.component';
 import { PreventUnsavedChangesGuard } from './_guard/prevent-unsaved-changes.guard';
+import { MemberDetailedResolver } from './_resolvers/member-detailed.resolver';
 
 const routes: Routes = [
   {path: '', component: HomeComponent},
@@ -19,7 +20,7 @@ const routes: Routes = [
     canActivate: [AuthGuard],
     children: [
       {path: 'to-dos', component: ToDoListComponent},
-      {path: 'to-dos/:username', component: ToDoDetailComponent},
+      {path: 'to-dos/:username', component: ToDoDetailComponent, resolve: {member: MemberDetailedResolver}},
       {path: 'to-do/:edit', component: ToDoEditComponent, canDeactivate: [PreventUnsavedChangesGuard]},
       {path: 'lists', component: ListsComponent},
       {path: 'messages', component: MessagesComponent},
